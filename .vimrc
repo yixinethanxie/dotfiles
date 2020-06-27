@@ -1,73 +1,62 @@
-inoremap jk <ESC>
-let mapleader = "<Space>"
-vnoremap . :norm.<CR>
-set splitbelow
-set splitright
+" Keep 1000 items in the history.
+set history=1000
+
+" Show the cursor position.
+set ruler
+
+" show incomplete commands.
+set showcmd
+
+" shows a menu when using tab completion. 
+set wildmenu
+
+set scrolloff=5
+
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+
+"turn on line numbering
 set number
-set nu
-set clipboard=unnamed
 
-set nocompatible              " required
-filetype off                  " required
+set backup
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" easier read line wrap
+set lbr
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+" auto-indentation, copy the identation from the line above
+set ai
 
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+" smart indentation
+set si
 
-" add all your plugins here (note older versions of Vundle
-" used Bundle instead of Plugin)
+" Copy the indentation from the current line.
+set autoindent
 
-" ...
-Plugin 'tmhedberg/SimpylFold'
-Plugin 'vim-scripts/indentpython.vim'
-" Bundle 'Valloric/YouCompleteMe'
-Plugin 'scrooloose/nerdtree'
-Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'nvie/vim-flake8'
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-" Plugin 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
+" Enable smart autoindenting.
+set smartindent
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-let python_highlight_all=1
-let NERDTreeIgnore=['\.pyc$', '\~$'] "ignore files in NERDTree
-syntax on
-runtime! config/**/*.vim
+" Use spaces instead of tabs
+set expandtab
 
-set background=dark
-" if has('gui_running')
-"   set background=dark
-"   colorscheme solarized
-" else
-"   colorscheme zenburn
-" endif
+" Enable smart tabs
+set smarttab
 
-" Indent fold
-set foldmethod=indent
-set foldlevel=99
-nnoremap <space> za
+" Make a tab equal to 4 spaces
+set shiftwidth=4
+set tabstop=4
 
-let g:SimpylFold_docstring_preview=1
-" au BufNewFile,BufRead *.py 
-" 	set tabstop=4 
-" 	set softtabstop=4 
-" 	set shiftwidth=4 
-" 	set textwidth=79 
-" 	set expandtab 
-" 	set autoindent 
-" 	set fileformat=unix
+colorscheme slate
+set bg=dark
 
-set encoding=utf-8
-" let g:ycm_autoclose_preview_window_after_completion=1
-" map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" map KEY KEYSTROKES
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" plugins
+call plug#begin('~/.vim/plugged')
+Plug 'mattn/emmet-vim'
+call plug#end()
