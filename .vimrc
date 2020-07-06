@@ -1,3 +1,7 @@
+syntax enable
+
+set laststatus=2
+set noshowmode
 " Keep 1000 items in the history.
 set history=1000
 
@@ -11,9 +15,8 @@ set showcmd
 set wildmenu
 
 set scrolloff=5
-
 set hlsearch
-set incsearch
+set incsearch 
 set ignorecase
 set smartcase
 
@@ -47,9 +50,6 @@ set smarttab
 set shiftwidth=4
 set tabstop=4
 
-colorscheme slate
-set bg=dark
-
 " map KEY KEYSTROKES
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -58,5 +58,14 @@ map <C-l> <C-w>l
 
 " plugins
 call plug#begin('~/.vim/plugged')
+Plug 'itchyny/lightline.vim'
+Plug 'Valloric/YouCompleteMe'
 Plug 'mattn/emmet-vim'
+Plug 'preservim/nerdtree'
+Plug 'crusoexia/vim-monokai'
 call plug#end()
+
+"-- EMMET CONFIG --
+"redefine trigger key
+let g:user_emmet_leader_key=','
+colorscheme monokai
